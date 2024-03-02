@@ -37,6 +37,7 @@ def create_app():
     from .models.user import User
     from .models.document import Document
     from .models.prompt import Prompt
+    from .models.annotation import Annotation
 
     # Create database tables
     with app.app_context():
