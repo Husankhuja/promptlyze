@@ -20,7 +20,6 @@ def async_batch_annotation(filenames):
 
     # Specify the feature(s) you want to extract
     feature = vision_v1.Feature(type_=vision_v1.Feature.Type.DOCUMENT_TEXT_DETECTION)
-    dest = f"gs://{config['BUCKET_NAME']}/annotations/"
 
     requests = []
 
@@ -31,6 +30,7 @@ def async_batch_annotation(filenames):
         input_config = vision_v1.InputConfig(gcs_source=gcs_source, mime_type='application/pdf')
 
         # Specify the GCS destination for the output
+        dest = f"gs://{config['BUCKET_NAME']}/annotations/{filename[:-4]}-"
         gcs_destination = vision_v1.GcsDestination(uri=dest)
         output_config = vision_v1.OutputConfig(gcs_destination=gcs_destination, batch_size=1)
 

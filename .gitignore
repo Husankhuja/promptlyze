@@ -47,3 +47,5 @@ documents/*
 
 .env
 service-account.json
+
+misc/*
