@@ -8,4 +8,5 @@ config = {
     'JWT_SECRET_KEY' : os.getenv('JWT_SECRET_KEY', 'test-key'),
     'SQLALCHEMY_TRACK_MODIFICATIONS' : False,
     'UPLOAD_FOLDER' : './documents/',
+    'BUCKET_NAME' : os.getenv('BUCKET_NAME', 'test-bucket'),
 }

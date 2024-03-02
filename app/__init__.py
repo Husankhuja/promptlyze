@@ -2,9 +2,12 @@ from flask import Flask
 from flask_jwt_extended import JWTManager
 from flask_sqlalchemy import SQLAlchemy
 
+from app.services.bucket_service import BucketService
+
 # Initialize extensions, but don't associate them with an app yet
 db = SQLAlchemy()
 jwt = JWTManager()
+bucketService = BucketService()
 
 def create_app():
     app = Flask(__name__)

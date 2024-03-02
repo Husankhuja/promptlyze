@@ -1,9 +1,11 @@
 import os, sys, json
+from google.cloud import storage
+
 # Add the parent directory to the sys.path
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), os.path.pardir)))
 
 import unittest
-from app import create_app, db  
+from app import create_app, db, bucketService
 
 from tests.auth_test import sign_up_user, login_user, get_user
 
@@ -21,6 +23,10 @@ def upload_file(client, token):
     }
     return client.post('/upload', data=data, content_type='multipart/form-data', headers=headers)
 
+def remove_uploads(filename):
+    """Remove uploaded files from Google Cloud Storage."""
+    blob = bucketService.delete_blob(filename)
+
 class DocumentRouteTestCase(unittest.TestCase):
     def setUp(self):
         """Set up test variables."""
@@ -30,17 +36,11 @@ class DocumentRouteTestCase(unittest.TestCase):
         with self.app.app_context():
             db.create_all()
 
-
     def tearDown(self):
         """Tear down test variables."""
         with self.app.app_context():
             db.session.remove()
             db.drop_all()
-            # Optionally, clean up the test upload folder
-
-    def remove_uploads(self, filename):
-        """Remove uploaded files."""
-        os.remove(os.path.join(config['UPLOAD_FOLDER'], filename))
 
     def test_upload_file(self):
         """Test file upload."""
@@ -59,9 +59,10 @@ class DocumentRouteTestCase(unittest.TestCase):
         self.assertIsNotNone(document)
         self.assertEqual(document.file_name, 'document.pdf')
 
-        self.assertTrue(os.path.exists(os.path.join(config['UPLOAD_FOLDER'], document.stored_file_name)))
+        blob = bucketService.bucket.blob(document.stored_file_name)
+        self.assertTrue(blob.exists())
 
-        self.remove_uploads(document.stored_file_name)
+        remove_uploads(document.stored_file_name)
 
     def test_get_documents(self):
         """Test getting user documents."""
@@ -81,7 +82,7 @@ class DocumentRouteTestCase(unittest.TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertEqual(document[0], 'document.pdf')
 
-        self.remove_uploads(document[1])
+        remove_uploads(document[1])
 
 if __name__ == '__main__':
     unittest.main()
