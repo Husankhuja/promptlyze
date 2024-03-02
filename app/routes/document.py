@@ -13,7 +13,7 @@ document_blueprint = Blueprint('document', __name__)
 
 @document_blueprint.route('/upload', methods=['POST'])
 @jwt_required()
-def upload_file():
+def upload_document():
     user_id = get_jwt_identity()
 
     if 'file' not in request.files:

@@ -3,7 +3,6 @@ import os, sys, json
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), os.path.pardir)))
 
 import unittest
-from werkzeug.datastructures import FileStorage
 from app import create_app, db  
 
 from tests.auth_test import sign_up_user, login_user, get_user

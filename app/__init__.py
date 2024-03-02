@@ -27,9 +27,13 @@ def create_app():
     from .routes.document import document_blueprint
     app.register_blueprint(document_blueprint)
 
+    from .routes.prompt import prompt_blueprint
+    app.register_blueprint(prompt_blueprint)
+
     # Import models
     from .models.user import User
     from .models.document import Document
+    from .models.prompt import Prompt
 
     # Create database tables
     with app.app_context():
