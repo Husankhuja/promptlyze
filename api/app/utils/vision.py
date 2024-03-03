@@ -50,9 +50,8 @@ def get_p_text(paragraph):
     return para
 
 def get_related_annotations(filename):
-    blobs = bucketService.list_blobs_with_prefix('annotations/')
-    print(blobs)
-    return [blob for blob in blobs if f"annotations/{filename}output-" in blob]
+    blobs = bucketService.list_blobs()
+    return [blob for blob in blobs if f"annotations/{filename}-output-" in blob]
 
 def remove_related_annotations(filename):
     blobs = bucketService.list_blobs_with_prefix('annotations/')
@@ -62,7 +61,6 @@ def remove_related_annotations(filename):
 
 def save_annotations(filename):
     blobs = get_related_annotations(filename)
-    print(blobs)
     text = extract_from_all_annotations(blobs)
     bucketService.upload_blob_from_string(text, f'texts/{filename}.txt')
     remove_related_annotations(filename)

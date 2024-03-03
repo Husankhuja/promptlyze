@@ -43,7 +43,7 @@ __pycache__/
 
 *.db
 
-documents/*
+api/documents/*
 
 .env
 service-account.json

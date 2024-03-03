@@ -9,4 +9,5 @@ config = {
     'SQLALCHEMY_TRACK_MODIFICATIONS' : False,
     'UPLOAD_FOLDER' : './documents/',
     'BUCKET_NAME' : os.getenv('BUCKET_NAME', 'test-bucket'),
+    'OPENAI_API_KEY' : os.getenv('OPENAI_API_KEY')
 }
