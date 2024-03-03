@@ -1,0 +1,31 @@
+# Python
+*.pyc
+__pycache__/
+env/
+*.pyo
+*.pyd
+
+# Flask
+instance/
+.webassets-cache
+
+# IDEs and editors
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Logs
+*.log
+
+# Environment
+*.env
+*.env.*
+
+misc/*
+
+node_modules/
+.next/
+
+*/service-account.json
+*/api/tests/documents/*

@@ -33,6 +33,9 @@ def create_app():
     from .routes.prompt import prompt_blueprint
     app.register_blueprint(prompt_blueprint)
 
+    from .routes.function import function_blueprint
+    app.register_blueprint(function_blueprint)
+
     # Import models
     from .models.user import User
     from .models.document import Document

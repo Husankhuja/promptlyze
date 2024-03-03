@@ -23,6 +23,18 @@ def upload_file(client, token):
     }
     return client.post('/upload', data=data, content_type='multipart/form-data', headers=headers)
 
+def upload_files(client, token):
+    files = os.listdir('./tests/documents')
+    for file in files:
+        data = {
+            'file': (open(f'./tests/documents/{file}', 'rb'), file)
+        }
+        headers = {
+            'Authorization': f'Bearer {token}'
+        }
+        client.post('/upload', data=data, content_type='multipart/form-data', headers=headers)
+
+
 def remove_uploads(filename):
     """Remove uploaded files from Google Cloud Storage."""
     blob = bucketService.delete_blob(filename)
