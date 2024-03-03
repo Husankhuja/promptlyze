@@ -13,7 +13,7 @@ import { useRouter } from 'next/navigation'
 import ReCAPTCHA from 'react-google-recaptcha'
 import { AuthScreen } from '../_component'
 
-export const Login: NextPage = () => {
+const Login = () => {
   const [capVal, setCapVal] = React.useState<string | null>(null)
   const loginSchema = z.object({
     email: z.string().email('Invalid email').min(1, 'Email is required'),
@@ -30,7 +30,11 @@ export const Login: NextPage = () => {
   return (
     <AuthScreen>
       <Form {...form}>
-        <form onSubmit={handleSubmit}>
+        <form 
+          onSubmit
+          ={handleSubmit}
+          className={``}
+        >
           <FormField
             control={form.control}
             name={`email`}
@@ -78,3 +82,4 @@ export const Login: NextPage = () => {
   )
 }
 
+export default Login

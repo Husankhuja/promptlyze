@@ -1,5 +1,6 @@
 import { constructMetadata, constructViewport } from '@/utils'
 
+
 import '@/styles/globals.css'
 
 export const meta = constructMetadata()

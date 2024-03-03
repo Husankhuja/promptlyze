@@ -1,61 +1,70 @@
 "use client"
-
-import { curve, heroBackground } from "../assets";
-import { Button } from "./ui/button";
-import Image from "next/image";
-import { BackgroundCircles, BottomLine, Gradient } from "./design/Hero";
-import { useRef } from "react";
-import CompanyLogos from "./CompanyLogos";
-
-export const Hero = () => {
-  const parallaxRef = useRef(null);
-
+import React from 'react'
+import { Button } from '@/components/ui/button'
+import { useRouter } from 'next/router'
+function HeroCTA() {
+  const navigate = useRouter()
   return (
-    <section
-      className="pt-[12rem] -mt-[5.25rem]"
-    >
-      <div className="container relative">
-        <div className="relative z-1 max-w-[62rem] mx-auto text-center mb-[3.875rem] md:mb-20 lg:mb-[6.25rem]">
-          <h1 className="h1 mb-6">
-            Explore the Possibilities of&nbsp;AI&nbsp;Chatting with {` `}
-            <span className="inline-block relative">
-              Brainwave{" "}
-              <Image
-                src={curve}
-                className="absolute top-full left-0 w-full xl:-mt-2"
-                width={624}
-                height={28}
-                alt="Curve"
-              />
-            </span>
-          </h1>
-          <p className="body-1 max-w-3xl mx-auto mb-6 text-n-2 lg:mb-8">
-            Unleash the power of AI within Brainwave. Upgrade your productivity
-            with Brainwave, the open AI chat app.
-          </p>
-          <Button href="/pricing" white>
-            Get started
-          </Button>
-        </div>
-        <div className="relative max-w-[23rem] mx-auto md:max-w-5xl xl:mb-24">
-          <div className="relative z-1 p-0.5 rounded-2xl bg-conic-gradient">
-            <Gradient />
-          </div>
-          <div className="absolute -top-[54%] left-1/2 w-[234%] -translate-x-1/2 md:-top-[46%] md:w-[138%] lg:-top-[104%]">
-            <Image
-              src={heroBackground}
-              className="w-full"
-              width={1440}
-              height={1800}
-              alt="hero"
-            />
-          </div>
-          <BackgroundCircles />
-        </div>
-        <CompanyLogos className="hidden relative z-10 mt-20 lg:block" />
-      </div>
+    <section className="bg-gray-50 h-[80dvh]">
+      <div className="p-8 md:p-12 lg:px-16 lg:py-24">
+        <div className="mx-auto max-w-lg text-center">
+          <h2 className="text-2xl font-bold text-gray-900 md:text-3xl">
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit
+          </h2>
 
-      <BottomLine />
+          <p className="hidden text-gray-500 sm:mt-4 sm:block">
+             By allowing users to define specific rules or inputs, Promptlyze leverages the power of large language models to meticulously examine a batch of documents, extracting and gathering valuable insights. Whether you're looking to save the results for later review in a CSV file or prefer to immediately view the collected data, Promptlyze offers a flexible and efficient solution for comprehensive document analysis.
+          </p>
+        </div>
+
+        <div className="mx-auto mt-8 max-w-xl">
+          <form action="#" className="sm:flex sm:gap-4">
+            <div className="sm:flex-1">
+              <label htmlFor="email" className="sr-only">Email</label>
+
+              <input
+                type="email"
+                placeholder="Email address"
+                className="w-full rounded-md border-gray-200 bg-white p-3 text-gray-700 shadow-sm transition focus:border-white focus:outline-none focus:ring focus:ring-yellow-400"
+              />
+            </div>
+
+            <button
+              type="submit"
+              className="group mt-4 flex w-full items-center justify-center gap-2 rounded-md bg-rose-600 px-5 py-3 text-white transition focus:outline-none focus:ring focus:ring-yellow-400 sm:mt-0 sm:w-auto"
+            >
+              <span className="text-sm font-medium"> Sign Up </span>
+
+              <svg
+                className="size-5 rtl:rotate-180"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M17 8l4 4m0 0l-4 4m4-4H3"
+                />
+              </svg>
+            </button>
+            <menu>
+              <Button
+                className={`w-full p-2`}
+                onClick={() => {
+                  navigate.push('/signup')
+                }}
+              >
+                Signup
+              </Button>
+            </menu>
+          </form>
+        </div>
+      </div>
     </section>
-  );
-};
+  )
+}
+
+export default HeroCTA
