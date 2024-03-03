@@ -6,7 +6,7 @@ import React from 'react';
 
 import { Button } from '@/components/ui/button';
 
-export const NotFound = () => {
+export default function NotFound() {
   return (
     <>
       <div className="flex h-screen flex-col items-center justify-center bg-[rgb(36,36,36)] text-white">
