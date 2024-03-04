@@ -4,6 +4,7 @@
     "next/core-web-vitals",
     "plugin:prettier/recommended"
   ],
+  "ignorePatterns": ["src/components/ui/**"],
   "rules": {
     "prettier/prettier": [
       "error",

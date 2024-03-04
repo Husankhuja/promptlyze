@@ -3,12 +3,12 @@ interface UserProps {
   lastName: string;
   email: string;
   userId: string;
-};
+}
 
 interface MetadataProps {
-  image?: string
-  icons?: string
-  description?: string
-  title?: string
-  noIndex?: boolean
+  image?: string;
+  icons?: string;
+  description?: string;
+  title?: string;
+  noIndex?: boolean;
 }

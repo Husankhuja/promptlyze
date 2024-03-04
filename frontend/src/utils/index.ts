@@ -1,9 +1,9 @@
-import type { Metadata, Viewport } from "next"
+import type { Metadata, Viewport } from 'next';
 
 export async function constructMetadata({
   image = '/assets/images/logo.png',
   icons = '/assets/svgs/logo.svg',
-  description = 'Promptlyze is a cutting-edge application designed to revolutionize the way users analyze content within documents. By allowing users to define specific rules or inputs, Promptlyze leverages the power of large language models to meticulously examine a batch of documents, extracting and gathering valuable insights. Whether you\'re looking to save the results for later review in a CSV file or prefer to immediately view the collected data, Promptlyze offers a flexible and efficient solution for comprehensive document analysis.',
+  description = "Promptlyze is a cutting-edge application designed to revolutionize the way users analyze content within documents. By allowing users to define specific rules or inputs, Promptlyze leverages the power of large language models to meticulously examine a batch of documents, extracting and gathering valuable insights. Whether you're looking to save the results for later review in a CSV file or prefer to immediately view the collected data, Promptlyze offers a flexible and efficient solution for comprehensive document analysis.",
   title = 'Promptlyze',
   noIndex = false,
 }: MetadataProps = {}): Promise<Metadata> {
@@ -33,11 +33,11 @@ export async function constructMetadata({
       {
         url: icons,
         href: icons,
-      }
+      },
     ],
     manifest: '/pwa/manifest.json',
     metadataBase: new URL('https://hopper-hacks-2024.vercel.app/'),
-    other: { 
+    other: {
       currentYear: new Date().getFullYear(),
       timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone,
     },
@@ -47,7 +47,7 @@ export async function constructMetadata({
         follow: false,
       },
     }),
-  }
+  };
 }
 
 export async function constructViewport(): Promise<Viewport> {
@@ -58,5 +58,5 @@ export async function constructViewport(): Promise<Viewport> {
     minimumScale: 1,
     maximumScale: 1,
     themeColor: '#F1F8FF',
-  }
+  };
 }

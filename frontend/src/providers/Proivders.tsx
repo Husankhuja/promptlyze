@@ -1,15 +1,14 @@
-import React from 'react'
-
-export const Providers: React.FC<Readonly<{
-  children: React.ReactNode;
-}>> = ({
-  children
-}) => {
+import React from 'react';
+import { Toaster } from 'sonner';
+export const Providers: React.FC<
+  Readonly<{
+    children: React.ReactNode;
+  }>
+> = ({ children }) => {
   return (
     <>
-      <>
-        {children}
-      </>
+      <Toaster />
+      {children}
     </>
-  )
-}
+  );
+};

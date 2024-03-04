@@ -1,5 +1,5 @@
-import React from 'react'
-import { type NextPage } from 'next'
+import React from 'react';
+import { type NextPage } from 'next';
 import {
   Table,
   TableBody,
@@ -9,19 +9,17 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from '@/components/ui/table'
+} from '@/components/ui/table';
 
-export const Documents: NextPage = () => {
+const Documents = () => {
   return (
     <>
       <Table>
-        <TableCaption>
-
-        </TableCaption>
-        <TableHeader>
-
-        </TableHeader>
+        <TableCaption></TableCaption>
+        <TableHeader></TableHeader>
       </Table>
     </>
-  )
-}
+  );
+};
+
+export default Documents;

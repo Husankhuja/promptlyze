@@ -1,26 +1,28 @@
-"use client"
-import React from 'react'
-import { Button } from '@/components/ui/button'
-import { useRouter } from 'next/router'
+'use client';
+import React from 'react';
+import { Button } from '@/components/ui/button';
+
 function HeroCTA() {
-  const navigate = useRouter()
   return (
     <section className="bg-gray-50 h-[80dvh]">
       <div className="p-8 md:p-12 lg:px-16 lg:py-24">
         <div className="mx-auto max-w-lg text-center">
-          <h2 className="text-2xl font-bold text-gray-900 md:text-3xl">
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit
-          </h2>
+          <h2 className="text-2xl font-bold text-gray-900 md:text-3xl">Analyze like a Pro. Promtlyzer.</h2>
 
           <p className="hidden text-gray-500 sm:mt-4 sm:block">
-             By allowing users to define specific rules or inputs, Promptlyze leverages the power of large language models to meticulously examine a batch of documents, extracting and gathering valuable insights. Whether you're looking to save the results for later review in a CSV file or prefer to immediately view the collected data, Promptlyze offers a flexible and efficient solution for comprehensive document analysis.
+            By allowing users to define specific rules or inputs, Promptlyze leverages the power of large language
+            models to meticulously examine a batch of documents, extracting and gathering valuable insights. Whether
+            you're looking to save the results for later review in a CSV file or prefer to immediately view the
+            collected data, Promptlyze offers a flexible and efficient solution for comprehensive document analysis.
           </p>
         </div>
 
         <div className="mx-auto mt-8 max-w-xl">
           <form action="#" className="sm:flex sm:gap-4">
             <div className="sm:flex-1">
-              <label htmlFor="email" className="sr-only">Email</label>
+              <label htmlFor="email" className="sr-only">
+                Email
+              </label>
 
               <input
                 type="email"
@@ -42,19 +44,14 @@ function HeroCTA() {
                 viewBox="0 0 24 24"
                 stroke="currentColor"
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M17 8l4 4m0 0l-4 4m4-4H3"
-                />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
             </button>
             <menu>
               <Button
                 className={`w-full p-2`}
                 onClick={() => {
-                  navigate.push('/signup')
+                  window.location.href = '/signup';
                 }}
               >
                 Signup
@@ -64,7 +61,7 @@ function HeroCTA() {
         </div>
       </div>
     </section>
-  )
+  );
 }
 
-export default HeroCTA
+export default HeroCTA;
